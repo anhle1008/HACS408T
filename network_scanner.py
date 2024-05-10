@@ -16,9 +16,9 @@ import time
     Take the MAC address from the received packet.
 """
 def arp_packet(interface, dest_ip, source_mac, source_ip, results): 
-    # Initialize and convert the type of all variables to bytes
-    dest_mac_byte = b"\xff\xff\xff\xff\xff\xff"
-    target_mac_byte = b"\x00\x00\x00\x00\x00\x00"
+    # Initialize and convert the type of all variables of MAC addresses to bytes
+    dest_mac_byte = b"\xff\xff\xff\xff\xff\xff"     # a broadcast frame
+    target_mac_byte = b"\x00\x00\x00\x00\x00\x00"   # refer to localhost and corresponds with the 127.0
     source_mac_byte = EUI(source_mac).packed
     dest_ip_byte = IPAddress(dest_ip).packed
     source_ip_byte = IPAddress(source_ip).packed
